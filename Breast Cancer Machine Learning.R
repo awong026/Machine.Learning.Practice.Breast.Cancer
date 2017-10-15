@@ -104,17 +104,10 @@ do.call(grid.arrange, c(multiplots, ncol = 3))
 
 ####################################################################################
 
-#Evaluate some models against others (1. setup test harness to use 10 fold cross validation, 2. build 5 models to predict species from flower measurements, 3. select best model)
+#Create Models
 
-##Use 10 fold cross validtion to estimate accuracy
-#Splits dataset into 10 parts, train in 9 and test in 1 and release for combinations of train-test splits. We will also repeat the process 3 times for each algorithm with diff split of the data into 10 groups, in an effort to get a more accurate estimate. 
-control <- trainControl(method = "cv", number = 10)
+####################################################################################
 
-#Using accuracy metric to judge how well our model works. Ratio of number of correctly predicted individed by the total number of instances then multipled by 100 to get a percentage
-metric <- "Accuracy"
-
-
-##################################################################################
 
 # 
 #Use a decision tree to create model to figure if tumor is beign or malgnant
@@ -135,7 +128,6 @@ fit <- rpart(Class ~ Cl.thickness + Cell.size + Cell.shape + Marg.adhesion + Epi
 
 
 #See decision tree model as plot
-
 library(rattle)
 library(rpart.plot)
 library(RColorBrewer)
