@@ -110,7 +110,7 @@ do.call(grid.arrange, c(multiplots, ncol = 3))
 
 
 # 
-#Use a decision tree to create model to figure if tumor is beign or malgnant
+#Use a decision tree to create model to figure if tumor is beign or malignant
 library(rpart)
 set.seed(123)
 
@@ -177,7 +177,7 @@ predictors <- names(trainSet)[!names(trainSet) %in% outcomeName]
 
 ctrl <- trainControl(method = 'cv', number = 10, repeats = 5, savePredictions = T, classProbs = T, allowParallel = T)
 
-#create parallel to make my computer work harder if necessary (Not my code, heard from co worker that this might be neccasary)
+#Create parallel to make my computer work harder if necessary (Not my code, heard from co worker that this might be neccasary)
 if (require('parallel', quietly = T, warn.conflicts = F)) {
   ctrl$workers <- parallel:::detectCores()
   ctrl$computeFunction <- mclapply
